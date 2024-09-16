@@ -25,9 +25,29 @@ cd your-repo-name
 ```
 
 7- Running the Project:
-- To run the project:
+- To run the project in **development mode**:
+  
+  1.Start the development server:
+  ```
+  npm run dev
+  ```
+  2.Open your browser and go to http://localhost:8000
+  
+- To run the project in **production mode**:
+
+  1.Build the project:
+  ```
+  npm run build
+  ```
+  2.Start the production server:
+  ```
+  npm start
+  ```
+  This will start the server at http://localhost:8000. you can edit the PORT number in src/index.ts
+
+8- Testing:
+- To run the tests for this project:
 ```
-npm start
+npm test
 ```
-This will start the server at http://localhost:8000. you can edit the PORT number in src/index.ts
 
