@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import os from "os";
 
 const app = express();
 
@@ -22,11 +23,8 @@ app.get('/info', (req:Request, res:Response) => {
     const info = {
         "time": new Date().toISOString(),
         "client_address": req.ip,
-        "host_name": req.get('Host'),
-        "headers": {
-            "Accept": req.headers.accept,
-            "User-Agent" : req.headers['user-agent']
-        }
+        "host_name": os.hostname(),
+        "headers": req.headers
     }
     return res.status(200).json(info);
 
@@ -34,7 +32,8 @@ app.get('/info', (req:Request, res:Response) => {
 
 
 // Start the server
-app.listen(PORT, ()=>{
+const server = app.listen(PORT, ()=>{
     console.log(`server is listening on port:${PORT}`);
 });
 
+export {app, server};
